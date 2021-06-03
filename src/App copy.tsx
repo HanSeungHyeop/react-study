@@ -4,12 +4,10 @@ import {BigBox} from './BigBox';
 import {SmallBox} from './SmallBox';
 import {TitleBox} from './TitleBox';
 import {Outline} from './Outline';
-import {Counter} from './Counter';
 
 function App() {
   return (
     <Outline>
-      <Counter/>
         <BigBox>
           <TitleBox title='자동차'/>
           <SmallBox content='현대'/>
