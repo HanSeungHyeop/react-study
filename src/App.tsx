@@ -20,6 +20,7 @@ function App() {
           <SmallBox content='삼성-갤럭시' isWide/>
           <SmallBox content='삼성-노트' isWide/>
           <SmallBox content='애플-아이폰' isWide/>
+          
           <SmallBox content='삼성-효도폰' isWide/>
         </BigBox>
 
