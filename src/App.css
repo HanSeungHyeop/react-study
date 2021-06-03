@@ -1,0 +1,45 @@
+.big_box {
+  border:1px solid black; 
+  width:123px; 
+  height:242px; 
+  float:left;
+  margin-left:15px;
+}
+.big_box:hover {
+  background:#FFB4FF;
+}
+.title_box {
+  border:1px solid red; 
+  width:40px; 
+  height:17px; 
+  margin:0 auto; 
+  margin-top:7px;
+}
+.title_box:hover {
+  background:#C4B73B;
+	color: white;
+}
+.small_box {
+  border:1px solid black; 
+  width:50px; 
+  height:18px; 
+  margin:0 auto; 
+  margin-top:7px;
+}
+.small_box:hover {
+  background:blue;
+	color: white;
+}
+.wide {
+  width:80px;
+}
+.small_box_wide:hover {
+  background:blue;
+	color: white;
+}
+.content {
+  font-size:13px; 
+  text-align:center; 
+  margin: 0 auto; 
+  margin-top:2px;
+}
