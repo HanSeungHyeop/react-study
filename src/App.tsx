@@ -7,6 +7,7 @@ import {Outline} from './Outline';
 import {Counter} from './Counter';
 import { InputSample } from './InputSample';
 import { UserList } from './UserList';
+import { InputExample } from './InputExample';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Counter/>
       <InputSample/>
       <UserList/>
+      <InputExample/>
         <BigBox>
           <TitleBox title='자동차'/>
           <SmallBox content='현대'/>

@@ -43,3 +43,7 @@
   margin: 0 auto; 
   margin-top:2px;
 }
+.InputExampleInputBox {
+  width: 50px;
+  border-radius: 5px;
+}
