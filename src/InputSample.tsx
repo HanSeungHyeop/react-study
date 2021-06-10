@@ -6,7 +6,7 @@ export function InputSample() {
         nickname: '',
     });
 
-    const nameInput = useRef<HTMLDivElement>(null);
+    const nameInput = useRef<HTMLInputElement>(null);
 
     const {name, nickname} = inputs;
 
@@ -23,7 +23,7 @@ export function InputSample() {
             name: '',
             nickname: '',
         });
-        // nameInput.current.focus();
+        nameInput.current?.focus();
     };
 
     return (
@@ -33,7 +33,7 @@ export function InputSample() {
                 placeholder='이름' 
                 onChange={onChange} 
                 value={name}
-                // ref={nameInput}    
+                ref={nameInput}    
             />
             <input name='nickname' 
                 placeholder='닉네임' 
