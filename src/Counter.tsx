@@ -24,6 +24,7 @@ export function Counter() {
             <button onClick={onDecrease}>-1</button>
             <br/>
             <input onChange={onChange} value={number}/>
+            <br/><br/><br/>
         </div>
     )
 }

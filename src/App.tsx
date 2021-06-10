@@ -5,11 +5,13 @@ import {SmallBox} from './SmallBox';
 import {TitleBox} from './TitleBox';
 import {Outline} from './Outline';
 import {Counter} from './Counter';
+import { InputSample } from './InputSample';
 
 function App() {
   return (
     <Outline>
       <Counter/>
+      <InputSample/>
         <BigBox>
           <TitleBox title='자동차'/>
           <SmallBox content='현대'/>
