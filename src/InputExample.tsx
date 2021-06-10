@@ -4,6 +4,12 @@ export function InputExample () {
     const [year, setYear] = useState(1990);
     const [month, setMonth] = useState(1);
     const [date, setDate] = useState(1);
+    const [inputs, setInputs] = useState({
+        id: 'abc123',
+        portal: 'google',
+    });
+
+    const {id, portal} = inputs;
     
     const onIncreaseYear = () => {
         setYear (prev => prev+1);
@@ -40,11 +46,27 @@ export function InputExample () {
             setDate(+e.target.value)
         }
     }
+    const onChangeText = (e: { target: { id: any; value: any; }; }) => {
+        const {value, id} = e.target;
+
+        setInputs({
+            ...inputs,
+            [id]: value,
+        });
+    }
 
     return (
         <div>
             <br/><br/><br/>
-            <h1>{year}년 {month}월{date}일</h1>
+            <div>
+                <h1>{year}년 {month}월{date}일</h1>
+            </div>
+
+            <div>
+                <h2>{id}@{portal}.com</h2>
+            </div>
+
+            <br/><br/>
             <input 
                 className='InputExampleInputBox' 
                 value={year}
@@ -70,6 +92,22 @@ export function InputExample () {
             />
             <button onClick={onIncreaseDate}>+1</button>
             <button onClick={onDecreaseDate}>-1</button>
+            <br/><br/>
+
+            <input 
+                className='InputExampleInputBox'
+                value={id}
+                name='id'
+                placeholder='id'
+                onChange={onChangeText}
+            />
+            <input 
+                className='InputExampleInputBox'
+                value={portal}
+                name='portal'
+                placeholder='portal'
+                onChange={onChangeText}
+            />
             
             <br/><br/><br/><br/><br/><br/>
         </div>

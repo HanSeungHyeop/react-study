@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import {BigBox} from './BigBox';
-import {SmallBox} from './SmallBox';
-import {TitleBox} from './TitleBox';
-import {Outline} from './Outline';
-import {Counter} from './Counter';
+import { BigBox } from './BigBox';
+import { SmallBox } from './SmallBox';
+import { TitleBox } from './TitleBox';
+import { Outline } from './Outline';
+import { Counter } from './Counter';
 import { InputSample } from './InputSample';
 import { UserList } from './UserList';
 import { InputExample } from './InputExample';

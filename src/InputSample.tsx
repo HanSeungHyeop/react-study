@@ -35,16 +35,19 @@ export function InputSample() {
                 value={name}
                 ref={nameInput}    
             />
-            <input name='nickname' 
+            <input 
+                name='nickname' 
                 placeholder='닉네임' 
                 onChange={onChange} 
                 value={nickname}
             />
             <button onClick={onReset}>초기화</button>
             <div>
+                <br/>
                 <b>값: </b>
                 {name} ({nickname})
             </div>
+            <br/><br/>
         </div>
     )
 }
