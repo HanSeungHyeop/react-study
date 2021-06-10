@@ -6,12 +6,14 @@ import {TitleBox} from './TitleBox';
 import {Outline} from './Outline';
 import {Counter} from './Counter';
 import { InputSample } from './InputSample';
+import { UserList } from './UserList';
 
 function App() {
   return (
     <Outline>
       <Counter/>
       <InputSample/>
+      <UserList/>
         <BigBox>
           <TitleBox title='자동차'/>
           <SmallBox content='현대'/>
