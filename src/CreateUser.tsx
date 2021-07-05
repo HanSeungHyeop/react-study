@@ -28,4 +28,4 @@ function CreateUser(props: Props) {
     );
 }
 
-export default CreateUser;
+export default React.memo(CreateUser);

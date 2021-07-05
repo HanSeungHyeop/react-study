@@ -1,20 +1,24 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo, useCallback, useReducer } from 'react';
 import './App.css';
 import { BigBox } from './BigBox';
 import { SmallBox } from './SmallBox';
 import { TitleBox } from './TitleBox';
 import { Outline } from './Outline';
-import { Counter } from './Counter';
+import  Counter  from './Counter';
 import { InputSample } from './InputSample';
-import { UserList } from './UserList';
+import  UserList  from './UserList';
 import { InputExample } from './InputExample';
 import CreateUser from './CreateUser';
 import NumMark from './NumMark';
 import { UserName } from './UserName';
 import { InputPractice } from './InputPractice';
 
-
+function countActiveUsers(users:any[]) {
+  console.log('활성 사용자 수를 세는중...');
+  return users.filter(user=>user.active).length;
+}
 function App() {
+
   const [inputs, setInputs] = useState({
     username: '',
     email: ''
@@ -31,26 +35,31 @@ function App() {
     {
       id: 1,
       username: 'velopert',
-      email: 'public.velopert@gmail.com'
+      email: 'public.velopert@gmail.com',
+      active: true
     },
     {
       id: 2,
       username: 'tester',
-      email: 'tester@example.com'
+      email: 'tester@example.com',
+      active: false
     },
     {
       id: 3,
       username: 'liz',
-      email: 'liz@example.com'
+      email: 'liz@example.com',
+      active: false
     }
   ]);
 
+
   const nextId = useRef(4);
-  const onCreate = () => {
+  const onCreate = useCallback(() => {
     const user = {
       id: nextId.current,
       username,
-      email
+      email,
+      active:true
     };
     // prev배열 만든 후 user배열 추가
     setUsers(prev => [...prev, user]);
@@ -59,14 +68,26 @@ function App() {
       email: ''
     });
     nextId.current += 1;
-  };
-  const onRemove = (id: number) => {
-    setUsers(users.filter(user => user.id !== id));
-  }
+  }, [username, email]);
+
+  const onRemove = useCallback((id: number) => {
+    //users.filter(user => user.id !== id)
+    setUsers(prev=>prev.filter(user => user.id !== id));
+  }, [])
+
+  const onToggle = useCallback(
+    (id: number) => {
+      setUsers(
+        prev => prev.map(user=>user.id===id?{...user, active: !user.active} : user)
+      )
+  }, [])
+
+  const count = useMemo(() => countActiveUsers(users), [users]);
+
   return (
     <Outline>
-      {/* <Counter /> */}
-      <NumMark />
+      <Counter />
+      {/* <NumMark /> */}
       <UserName />
       {/* <InputSample /> */}
       <InputPractice />
@@ -77,7 +98,8 @@ function App() {
           onChange={onChange}
           onCreate={onCreate}
         />
-        <UserList users={users} onRemove={onRemove} />
+        <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
+        <div>활성 사용자 수: {count}</div>
       </>
       {/* <InputExample /> */}
       <BigBox>
@@ -116,3 +138,7 @@ function App() {
 }
 
 export default App;
+function initialState(reducer: (state: any, action: any) => any, initialState: any): [any, any] {
+  throw new Error('Function not implemented.');
+}
+
